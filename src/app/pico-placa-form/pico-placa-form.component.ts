@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 interface FormValue {
   plate: string;
@@ -15,7 +17,13 @@ interface FormValue {
 })
 export class PicoPlacaFormComponent {
 
+  constructor(private http: HttpClient) { }
+
   onSubmit(value: FormValue) {
-    console.log(value);
+    const params = { licensePlate: value.plate, currentDate: value.datetime };
+
+    this.http.get(`${environment.apiUrl}/isValidToDrive`, { params }).subscribe(response => {
+      console.log(response);
+    });
   }
 }
