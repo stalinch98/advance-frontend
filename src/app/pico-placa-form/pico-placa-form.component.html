@@ -1,36 +1,42 @@
 <div class="flex justify-center items-center">
-    <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mt-6 w-2/5" #form="ngForm" (ngSubmit)="onSubmit(form.value)">
+    <form [formGroup]="form" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mt-6 w-2/5"
+        (ngSubmit)="onSubmit(form.value)">
         <div class="mb-4">
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="string-input">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="plate-input">
                 Placa del vehículo
             </label>
             <input
                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="string-input" type="text" placeholder="Ingrese una placa" pattern="[A-Za-z]{3}[0-9]{4}" name="plate"
-                ngModel #plate="ngModel" required>
+                id="plate-input" type="text" formControlName="plate">
 
-            @if(plate.invalid && (plate.dirty || plate.touched)){
-            <div class="text-red-500 text-xs italic">
-                Por favor, ingrese una placa válida.
-            </div>
-            }
-
-            @if(plate.errors && plate.errors['required'] && (plate.dirty || plate.touched)){
+            @if(form.controls['plate'].errors?.['required']){
             <div class="text-red-500 text-xs italic">
                 Este campo es requerido.
             </div>
             }
 
+            @if(form.controls['plate'].errors?.['pattern']){
+            <div class="text-red-500 text-xs italic">
+                La placa debe tener el formato AAA9999 (3 letras seguidas de 4 dígitos).
+            </div>
+            }
         </div>
+
+
         <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="datetime-input">
                 Fecha y Hora
             </label>
             <input
                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="datetime-input" type="datetime-local" name="datetime" ngModel #datetime="ngModel" required>
+                id="datetime-input" type="datetime-local" formControlName="datetime">
+            @if(form.controls['datetime'].errors?.['fechaHoraActual']){
+            <div class="text-red-500 text-xs italic">
+                La fecha y hora seleccionadas no pueden ser anteriores a la fecha y hora actual.
+            </div>
+            }
 
-            @if(datetime.errors && datetime.errors['required'] && (datetime.dirty || datetime.touched)){
+            @if(form.controls['datetime'].errors?.['required']){
             <div class="text-red-500 text-xs italic">
                 Este campo es requerido.
             </div>
