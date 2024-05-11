@@ -1,27 +1,27 @@
-# AdvanceFrontend
+# Pico y Placa Predictor
+Este proyecto es una aplicación Angular que permite a los usuarios verificar si su vehículo puede circular en un día y hora específicos según las reglas del Pico y Placa.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.3.
+## Requisitos
 
-## Development server
+- Node.js
+- Angular CLI
+- Un servidor de API que responda a la ruta /isValidToDrive
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Instalación
 
-## Code scaffolding
+1. Clona este repositorio en tu máquina local.
+2. Navega hasta el directorio del proyecto.
+3. Ejecuta npm install para instalar las dependencias del proyecto.
+4. Asegúrate de que tu servidor de API esté en funcionamiento.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Uso
 
-## Build
+- Ejecuta ng serve para iniciar el servidor de desarrollo de Angular.
+- Abre un navegador web y navega hasta http://localhost:4200.
+- Introduce la matrícula de tu vehículo y la fecha y hora que deseas verificar.
+- Haz clic en el botón "Verificar" para comprobar si tu vehículo puede circular en la fecha y hora especificadas.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Funcionalidades
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Verificación de Pico y Placa: Los usuarios pueden verificar si su vehículo puede circular en una fecha y hora específicas.
+- Validación de formulario: Los campos de matrícula y fecha/hora son obligatorios. La matrícula debe seguir el formato 'AAA1111'. La fecha y hora no pueden ser anteriores a la fecha y hora actuales.
