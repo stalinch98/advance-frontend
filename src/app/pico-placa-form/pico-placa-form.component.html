@@ -44,4 +44,8 @@
             </button>
         </div>
     </form>
+
+    @if(showModal){
+    <app-modal [validToDrive]="validToDrive" [dataVehicle]="dataVehicle" (clickOutside)="closeModal()"></app-modal>
+    }
 </div>

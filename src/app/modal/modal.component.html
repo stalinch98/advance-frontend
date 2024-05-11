@@ -1,0 +1,18 @@
+<div class="fixed inset-0 flex items-center justify-center z-50">
+    <div class="absolute inset-0 bg-gray-900 opacity-75"></div>
+    <div class="bg-white p-8 rounded-lg z-50">
+        @if(validToDrive){
+        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+            <span class="block sm:inline">El vehículo con la placa {{dataVehicle.plate}} puede circular en
+                el horario
+                consultado: {{dataVehicle.datetime}}.</span>
+        </div>
+        }@else{
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+            <span class="block sm:inline">El vehículo con la placa {{dataVehicle.plate.toUpperCase}} no puede circular
+                en el horario
+                consultado.</span>
+        </div>
+        }
+    </div>
+</div>
