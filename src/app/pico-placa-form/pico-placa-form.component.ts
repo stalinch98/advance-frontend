@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
+interface FormValue {
+  plate: string;
+  datetime: string;
+}
+
 @Component({
   selector: 'app-pico-placa-form',
   standalone: true,
@@ -9,7 +14,8 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './pico-placa-form.component.css'
 })
 export class PicoPlacaFormComponent {
-  onSubmit() {
-    console.log('El botón Consultar fue presionado');
+
+  onSubmit(value: FormValue) {
+    console.log(value);
   }
 }
