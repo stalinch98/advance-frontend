@@ -46,6 +46,6 @@
     </form>
 
     @if(showModal){
-    <app-modal [validToDrive]="validToDrive" [dataVehicle]="dataVehicle" (clickOutside)="closeModal()"></app-modal>
+    <app-modal [validToDrive]="validToDrive" [dataVehicle]="dataVehicle" (closeModal)="closeModal()"></app-modal>
     }
 </div>

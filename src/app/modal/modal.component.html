@@ -1,17 +1,37 @@
-<div class="fixed inset-0 flex items-center justify-center z-50">
-    <div class="absolute inset-0 bg-gray-900 opacity-75"></div>
-    <div class="bg-white p-8 rounded-lg z-50">
+<div class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-75">
+    <div class="bg-white p-8 rounded shadow-md">
+        <button class="absolute top-0 right-0 m-2 p-2 rounded-full bg-gray-200 hover:bg-gray-300"
+            (click)="close()">
+            <svg class="h-6 w-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
         @if(validToDrive){
-        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
-            <span class="block sm:inline">El vehículo con la placa {{dataVehicle.plate}} puede circular en
+        <div class="flex items-center justify-center mb-4">
+            <svg class="h-12 w-12 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+        </div>
+        <div class="text-center">
+            <p class="text-lg font-semibold mb-2">¡Puedes circular!</p>
+            <p class="text-gray-700">El vehículo con la placa {{dataVehicle.plate}} puede circular en
                 el horario
-                consultado: {{dataVehicle.datetime}}.</span>
+                consultado: {{dataVehicle.datetime}}.</p>
         </div>
         }@else{
-        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
-            <span class="block sm:inline">El vehículo con la placa {{dataVehicle.plate.toUpperCase}} no puede circular
+        <div class="flex items-center justify-center mb-4">
+            <svg class="h-12 w-12 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </div>
+        <div class="text-center">
+            <p class="text-lg font-semibold mb-2">¡No puedes circular!</p>
+            <p class="text-gray-700">El vehículo con la placa {{dataVehicle.plate}} no puede circular
                 en el horario
-                consultado.</span>
+                consultado: {{dataVehicle.datetime}}.</p>
         </div>
         }
     </div>

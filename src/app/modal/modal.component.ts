@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormValue } from '../interfaces/interfaces';
 
 @Component({
@@ -12,5 +12,9 @@ export class ModalComponent {
 
   @Input() validToDrive: boolean = false;
   @Input() dataVehicle: FormValue = {} as FormValue;
+  @Output() closeModal = new EventEmitter<void>();
 
+  close() {
+    this.closeModal.emit();
+  }
 }
